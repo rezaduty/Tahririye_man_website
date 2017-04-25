@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.fullpage/2.5.9/jquery.fullPage.min.css">
+<link rel="stylesheet" type="text/css" href="assets/js/video-js.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css">
+	<style type="text/css">
+		@import url(//fonts.googleapis.com/css?family=Montserrat:400,700);
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 70px;
+  text-align: center;
+}
+
+.fa-chevron-down {
+  color: white;
+  bottom: 0;
+  left: 50%;
+  position: absolute;
+  padding-bottom: 50px;
+  font-size: 40px;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+}
+
+.fa-chevron-up {
+  color: white;
+  bottom: 0;
+  left: 50%;
+  position: absolute;
+  padding-bottom: 50px;
+  font-size: 40px;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+}
+
+h3 {
+  text-align: center;
+}
+
+.one {
+  background-image: url(assets/img/pattern.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: white;
+  text-shadow: 0 1px 0 #000, 0 2px 0 #000, 0 3px 0 #000, 0 4px 0 #000, 0 4px 0 #000, 0 3px 1px #000, 0 0 5px #000, 0 1px 3px #000;
+  -webkit-text-shadow: 0 1px 0 #000, 0 2px 0 #000, 0 3px 0 #000, 0 4px 0 #000, 0 4px 0 #000, 0 3px 1px #000, 0 0 5px #000, 0 1px 3px #000;
+  -moz-text-shadow: 0 1px 0 #000, 0 2px 0 #000, 0 3px 0 #000, 0 4px 0 #000, 0 4px 0 #000, 0 3px 1px #000, 0 0 5px #000, 0 1px 3px #000;
+}
+
+.two {
+  background: rgb(127, 127, 127);
+}
+
+.three {
+  background: #22333a;
+}
+
+.four {
+  background: #f5f5f5;
+}
+
+.five {
+  background: #111;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+/* lover robot */
+
+
+
+.robot {
+  position: relative;
+  height: 70px;
+  width: 100px;
+  margin: 50px auto;
+  border: 5px solid #000000;
+  border-radius: 8px;
+  /* This box shadow is his neck */
+  box-shadow: 0px 40px 0px -32px #000000;
+  background: #000000;
+}
+.robot:before {
+  content: '';
+  position: absolute;
+  top: 19px;
+  left: -22px;
+  width: 12px;
+  height: 25px;
+  border: 5px solid #000000;
+  background: #000000;
+  border-radius: 5px;
+}
+.robot:after {
+  content: '';
+  position: absolute;
+  top: 19px;
+  right: -22px;
+  width: 12px;
+  height: 25px;
+  border: 5px solid #000000;
+  background: #000000;
+  border-radius: 5px;
+}
+.robot p {
+  position: absolute;
+  top: -30px;
+  left: -330px;
+  text-indent: -10px;
+  font-family: 'Karla';
+}
+.robot p span {
+  font-family: helvetica;
+  font-size: 3em;
+  letter-spacing: 4px;
+  font-weight: bold;
+  color: #333333;
+  text-shadow: 1px 1px #545454,
+               2px 2px #545454,
+               3px 3px #4C4C4C,
+               4px 4px #4C4C4C,
+               5px 5px #858585,
+               6px 6px #858585,
+               7px 7px #BFBFBF,
+               8px 8px #BFBFBF;
+}
+
+.antena {
+  content: '';
+  position: absolute;
+  left: 7px;
+  width: 5px;
+  height: 15px;
+  background-color: #000000;
+  top: -19px;
+  left: 42px;
+}
+.antena:before {
+  position: absolute;
+  top: -16px;
+  left: -8px;
+  width: 21px;
+  height: 17px;
+  border-radius: 50%;
+  content: '';
+  background-color: #9E9E9E;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  animation: sonarWave 2s linear infinite
+}
+.antena:after {
+  content: '';
+  position: absolute;
+  top: -17px;
+  left: -8px;
+  width: 21px;
+  height: 18px;
+  border: 5px solid #000000;
+  border-radius: 21px;
+  background: #000000;
+}
+
+.face {
+  position: absolute;
+  left: 13px;
+  top: 13px;
+  height: 22px;
+  width: 12px;
+  background-color: #ffffff;
+  border-radius: 4px;
+}
+.face:before {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 54px;
+  height: 22px;
+  width: 12px;
+  background-color: #ffffff;
+  border-radius: 4px;
+}
+.face:after {
+  content: '';
+  position: absolute;
+  top: 35px;
+  left: 13px;
+  width: 42px;
+  height: 6px;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+.body {
+  position: absolute;
+  top: 73px;
+  left: -25px;
+  height: 97px;
+  width: 140px;
+  border: 5px solid #000000;
+  background-color: #000000;
+  border-radius: 10px;
+}
+
+.bowtie {
+  background-color: #000000;
+  border-radius: 16px;
+}
+
+.bowtie:before {
+
+}
+.bowtie:after {
+
+}
+
+.arm-right {
+  position: absolute;
+  top: 90px;
+  left: 118px;
+  height: 55px;
+  width: 10px;
+  background: #000000;
+}
+.arm-right:before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  height: 35px;
+  width: 10px;
+  border: 5px solid #000000;
+}
+
+.arm-left {
+  position: absolute;
+  top: 90px;
+  right: 118px;
+  height: 55px;
+  width: 10px;
+  background: #000000;
+}
+
+.arm-left:before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  height: 35px;
+  width: 10px;
+  border: 5px solid #000000;
+}
+
+.legs {
+  background: #000000;
+  position: absolute;
+  top: 169px;
+  left: 1px;
+  height: 41px;
+  width: 35px;
+  border: 5px solid #000;
+  box-shadow: 53px 0px 0px -5px #000,          
+              53px 0px 0px 0px #000;
+}
+.legs:before {
+  content: '';
+  position: absolute;
+  top: 31px;
+  left: -8px;
+  height: 17px;
+  width: 41px;
+  border: 5px solid #000000;
+  background: #000000;
+}
+.legs:after {
+  content: '';
+  position: absolute;
+  top: 31px;
+  left: 45px;
+  height: 17px;
+  width: 41px;
+  border: 5px solid #000000;
+  background: #000000;
+}
+
+.hearth {
+  content: '';
+  position: absolute;
+  top: 85px;
+  left: 68px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+
+.hearth1 {
+  content: '';
+  position: absolute;
+  top: 98px;
+  left: 40px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+
+.hearth2 {
+  content: '';
+  position: absolute;
+  top: 85px;
+  left: 54px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+
+.hearth3 {
+  content: '';
+  position: absolute;
+  top: 85px;
+  left: 26px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+
+.hearth4 {
+  content: '';
+  position: absolute;
+  top: 85px;
+  left: 12px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+
+.hearth5 {
+  content: '';
+  position: absolute;
+  top: 98px;
+  left: 54px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+.hearth6 {
+  content: '';
+  position: absolute;
+  top: 98px;
+  left: 68px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+.hearth7 {
+  content: '';
+  position: absolute;
+  top: 98px;
+  left: 82px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+.hearth8 {
+  content: '';
+  position: absolute;
+  top: 98px;
+  left: 26px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+.hearth9 {
+  content: '';
+  position: absolute;
+  top: 98px;
+  left: 12px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+.hearth10 {
+  content: '';
+  position: absolute;
+  top: 98px;
+  left: -2px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+.hearth11 {
+  content: '';
+  position: absolute;
+  top: 111px;
+  left: -2px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+.hearth12 {
+  content: '';
+  position: absolute;
+  top: 111px;
+  left: 12px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+.hearth13 {
+  content: '';
+  position: absolute;
+  top: 111px;
+  left: 26px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+
+.hearth14 {
+  content: '';
+  position: absolute;
+  top: 111px;
+  left: 40px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+
+.hearth15 {
+  content: '';
+  position: absolute;
+  top: 111px;
+  left: 54px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+
+.hearth16 {
+  content: '';
+  position: absolute;
+  top: 111px;
+  left: 68px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+
+.hearth17 {
+  content: '';
+  position: absolute;
+  top: 111px;
+  left: 82px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+
+.hearth18 {
+  content: '';
+  position: absolute;
+  top: 112px;
+  left: 26px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+
+.hearth19 {
+  content: '';
+  position: absolute;
+  top: 114px;
+  left: 26px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+
+.hearth20 {
+  content: '';
+  position: absolute;
+  top: 124px;
+  left: 26px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+
+.hearth21 {
+  content: '';
+  position: absolute;
+  top: 124px;
+  left: 12px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+
+.hearth22 {
+  content: '';
+  position: absolute;
+  top: 124px;
+  left: 40px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+
+.hearth23 {
+  content: '';
+  position: absolute;
+  top: 124px;
+  left: 54px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+
+.hearth24 {
+  content: '';
+  position: absolute;
+  top: 124px;
+  left: 12px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+
+.hearth25 {
+  content: '';
+  position: absolute;
+  top: 124px;
+  left: 68px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+
+.hearth26 {
+  content: '';
+  position: absolute;
+  top: 128px;
+  left: 12px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+
+.hearth27 {
+  content: '';
+  position: absolute;
+  top: 137px;
+  left: 26px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+
+.hearth28 {
+  content: '';
+  position: absolute;
+  top: 137px;
+  left: 40px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+
+.hearth29 {
+  content: '';
+  position: absolute;
+  top: 137px;
+  left: 54px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+
+.hearth30 {
+  content: '';
+  position: absolute;
+  top: 150px;
+  left: 40px;
+  height: 12px;
+  width: 12px;
+  background-color: #c0392b;
+  /*  border: 2px solid #4F4F4F;*/
+  border-radius: 15px;
+  /*  box-shadow: 0px 16px 0px -1px #4F4F4F;*/
+  -webkit-animation: lights 2s infinite;
+  -moz-animation: lights 2s infinite;
+  -ms-animation: lights 2s infinite;
+  -o-animation: lights 2s infinite;
+}
+
+ 
+@-webkit-keyframes spin {
+  from, to {
+    -webkit-transform: rotate(0deg);
+  }
+  5% {
+    -webkit-transform: rotate(0deg);  
+  }
+  15% {
+    -webkit-transform: rotate(720deg); 
+  }
+  16% {
+    -webkit-transform: rotate(0deg);
+  }
+}
+
+@-moz-keyframes spin {
+  from, to {
+    -moz-transform: rotate(0deg);
+  }
+  5% {
+    -moz-transform: rotate(0deg);  
+  }
+  15% {
+    -moz-transform: rotate(720deg); 
+  }
+  16% {
+    -moz-transform: rotate(0deg);
+  }
+}
+
+@-ms-keyframes spin {
+  from, to {
+    -ms-transform: rotate(0deg);
+  }
+  5% {
+    -ms-transform: rotate(0deg);  
+  }
+  15% {
+    -ms-transform: rotate(720deg); 
+  }
+  16% {
+    -ms-transform: rotate(0deg);
+  }
+}
+
+@-o-keyframes spin {
+  from, to {
+    -o-transform: rotate(0deg);
+  }
+  5% {
+    -o-transform: rotate(0deg);  
+  }
+  15% {
+    -o-transform: rotate(720deg); 
+  }
+  16% {
+    -o-transform: rotate(0deg);
+  }
+}
+
+/* Only works in Firefox right now */
+
+@-webkit-keyframes lights {
+  from, to {
+    background-color: none;
+/*    border: 2px solid #4F4F4F;*/
+  }
+  20% {
+    background-color: #4F4F4F;
+  }
+  25% {
+    background-color: none;
+  }
+}
+
+@-moz-keyframes lights {
+  from, to {
+    background-color: none;
+    border: 2px solid #4F4F4F;
+    box-shadow: 0px 16px 0px -1px #4F4F4F;
+  }
+  20% {
+    background-color: #4F4F4F;
+  }
+  25% {
+    background-color: none;
+  }
+}
+
+@-ms-keyframes lights {
+  from, to {
+    background-color: none;
+    border: 2px solid #4F4F4F;
+    box-shadow: 0px 16px 0px -1px #4F4F4F;
+  }
+  20% {
+    background-color: #4F4F4F;
+  }
+  25% {
+    background-color: none;
+  }
+}
+
+@-o-keyframes lights {
+  from, to {
+    background-color: none;
+    border: 2px solid #4F4F4F;
+    box-shadow: 0px 16px 0px -1px #4F4F4F;
+  }
+  3s {
+    background-color: none;
+  }
+  4s {
+    background-color: #4F4F4F;
+  }
+  5s {
+    background-color: none;
+  }
+}
+
+@keyframes sonarWave {
+    from {
+        opacity: .5
+    }
+
+    to {
+        transform: scale(2.5);
+        opacity: 0
+    }
+}
+
+
+ 
+@-webkit-keyframes spin {
+  from, to {
+    -webkit-transform: rotate(0deg);
+  }
+  5% {
+    -webkit-transform: rotate(0deg);  
+  }
+  15% {
+    -webkit-transform: rotate(720deg); 
+  }
+  16% {
+    -webkit-transform: rotate(0deg);
+  }
+}
+
+@-moz-keyframes spin {
+  from, to {
+    -moz-transform: rotate(0deg);
+  }
+  5% {
+    -moz-transform: rotate(0deg);  
+  }
+  15% {
+    -moz-transform: rotate(720deg); 
+  }
+  16% {
+    -moz-transform: rotate(0deg);
+  }
+}
+
+@-ms-keyframes spin {
+  from, to {
+    -ms-transform: rotate(0deg);
+  }
+  5% {
+    -ms-transform: rotate(0deg);  
+  }
+  15% {
+    -ms-transform: rotate(720deg); 
+  }
+  16% {
+    -ms-transform: rotate(0deg);
+  }
+}
+
+@-o-keyframes spin {
+  from, to {
+    -o-transform: rotate(0deg);
+  }
+  5% {
+    -o-transform: rotate(0deg);  
+  }
+  15% {
+    -o-transform: rotate(720deg); 
+  }
+  16% {
+    -o-transform: rotate(0deg);
+  }
+}
+
+/* Only works in Firefox right now */
+
+@-webkit-keyframes lights {
+  from, to {
+    background-color: none;
+/*    border: 2px solid #4F4F4F;*/
+  }
+  20% {
+    background-color: #4F4F4F;
+  }
+  25% {
+    background-color: none;
+  }
+}
+
+@-moz-keyframes lights {
+  from, to {
+    background-color: none;
+    border: 2px solid #4F4F4F;
+    box-shadow: 0px 16px 0px -1px #4F4F4F;
+  }
+  20% {
+    background-color: #4F4F4F;
+  }
+  25% {
+    background-color: none;
+  }
+}
+
+@-ms-keyframes lights {
+  from, to {
+    background-color: none;
+    border: 2px solid #4F4F4F;
+    box-shadow: 0px 16px 0px -1px #4F4F4F;
+  }
+  20% {
+    background-color: #4F4F4F;
+  }
+  25% {
+    background-color: none;
+  }
+}
+
+@-o-keyframes lights {
+  from, to {
+    background-color: none;
+    border: 2px solid #4F4F4F;
+    box-shadow: 0px 16px 0px -1px #4F4F4F;
+  }
+  3s {
+    background-color: none;
+  }
+  4s {
+    background-color: #4F4F4F;
+  }
+  5s {
+    background-color: none;
+  }
+}
+
+@keyframes sonarWave {
+    from {
+        opacity: .7
+    }
+
+    to {
+        transform: scale(2.5);
+        opacity: 0
+    }
+}
+
+
+
+
+/*
+  Player Skin Designer for Video.js
+  http://videojs.com
+
+  To customize the player skin edit 
+  the CSS below. Click "details" 
+  below to add comments or questions.
+  This file uses some SCSS. Learn more  
+  at http://sass-lang.com/guide)
+
+  This designer can be linked to at:
+  http://codepen.io/heff/pen/EarCt/left/?editors=010
+*/
+.video-js {
+  /* The base font size controls the size of everything, not just text.
+     All dimensions use em-based sizes so that the scale along with the font size.
+     Try increasing it to 15px and see what happens. */
+  font-size: 10px;
+  /* The main font color changes the ICON COLORS as well as the text */
+  color: #fff;
+}
+
+/* The "Big Play Button" is the play button that shows before the video plays.
+   To center it set the align values to center and middle. The typical location
+   of the button is the center, but there is trend towards moving it to a corner
+   where it gets out of the way of valuable content in the poster image.*/
+.vjs-default-skin .vjs-big-play-button {
+  /* The font size is what makes the big play button...big. 
+     All width/height values use ems, which are a multiple of the font size.
+     If the .video-js font-size is 10px, then 3em equals 30px.*/
+  font-size: 3em;
+  /* We're using SCSS vars here because the values are used in multiple places.
+     Now that font size is set, the following em values will be a multiple of the
+     new font size. If the font-size is 3em (30px), then setting any of
+     the following values to 3em would equal 30px. 3 * font-size. */
+  /* 1.5em = 45px default */
+  line-height: 1.5em;
+  height: 1.5em;
+  width: 3em;
+  /* 0.06666em = 2px default */
+  border: 0.06666em solid #fff;
+  /* 0.3em = 9px default */
+  border-radius: 0.3em;
+  /* Align top left. 0.5em = 15px default */
+  left: 0.5em;
+  top: 0.5em;
+}
+
+/* The default color of control backgrounds is mostly black but with a little
+   bit of blue so it can still be seen on all-black video frames, which are common. */
+.video-js .vjs-control-bar,
+.video-js .vjs-big-play-button,
+.video-js .vjs-menu-button .vjs-menu-content {
+  /* IE8 - has no alpha support */
+  background-color: #2B333F;
+  /* Opacity: 1.0 = 100%, 0.0 = 0% */
+  background-color: rgba(43, 51, 63, 0.7);
+}
+
+/* Slider - used for Volume bar and Progress bar */
+.video-js .vjs-slider {
+  background-color: #73859f;
+  background-color: rgba(115, 133, 159, 0.5);
+}
+
+/* The slider bar color is used for the progress bar and the volume bar
+   (the first two can be removed after a fix that's coming) */
+.video-js .vjs-volume-level,
+.video-js .vjs-play-progress,
+.video-js .vjs-slider-bar {
+  background: #fff;
+}
+
+/* The main progress bar also has a bar that shows how much has been loaded. */
+.video-js .vjs-load-progress {
+  /* For IE8 we'll lighten the color */
+  background: #bfc7d3;
+  /* Otherwise we'll rely on stacked opacities */
+  background: rgba(115, 133, 159, 0.5);
+}
+
+/* The load progress bar also has internal divs that represent
+   smaller disconnected loaded time ranges */
+.video-js .vjs-load-progress div {
+  /* For IE8 we'll lighten the color */
+  background: white;
+  /* Otherwise we'll rely on stacked opacities */
+  background: rgba(115, 133, 159, 0.75);
+}
+
+
+.vjs-big-play-button{
+	position: absolute;
+	margin:70% 36%;
+}
+
+
+
+ #instructions { width: 45%;columns: 2; height: 74%; text-align: left; margin: 30px auto; }
+  #instructions textarea { width: 100%; height: 100px; }
+  
+  /* Show the controls (hidden at the start by default) */
+  .video-js .vjs-control-bar { 
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  /* Make the demo a little prettier */
+  body {
+background: #4b6cb7;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #182848, #4b6cb7);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #182848, #4b6cb7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    text-align: center; 
+    color: #e2e2e2;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  a, a:hover, a:visited { color: #76DAFF; }
+
+
+.preview{
+	position: relative;
+	margin-top: -11%;
+	margin-left: 59%;
+	position: relative;
+}
+.preview img{
+	width: 100%;
+}
+
+.preview_image{
+	clear: both;
+}
+.preview_image img{
+	width: 24%;
+}
+.preview_footer{
+	position: absolute;
+	top: 62%;
+	left: 32%;
+}
+.preview_download{
+	position: absolute;
+	top: 42%;
+	left: 37%;
+}
+
+.ol, ul{
+	list-style-type: none;
+
+}
+.allpf{
+	columns: 2;
+}
+	</style>
+	<title></title>
+</head>
+<body>
+<div id="fullpage">
+  <div class="section active one" id="section0" name="section0">
+    <h1 style="margin-bottom:9%;">nTA Minimalist rss reader</h1>
+    <div class="preview">
+    	<img src="assets/img/android.png" />
+    </div>
+    	<div class="preview_download">
+    	<h4>You cand Download from local store</h4><br>
+    		<a href="#" target="_blank">
+	    	<img src="http://developers.cafebazaar.ir/static/img/docs/global/logo.png">
+		    </a>
+		    &nbsp;&nbsp;&nbsp;
+		    <a href="#" target="_blank">
+		    	<img src="https://upload.wikimedia.org/wikipedia/fa/3/3e/Myket-logo.png">
+		    </a>
+    	</div>
+    	<div class="preview_footer">
+    	<h4>You can download without store (with scan result)</h4>
+    	<a href="https://github.com/rezaduty/nTA" target="_blank">
+	    	<img src="assets/img/ic_launcher.png">
+	    </a>
+	    <a href="https://www.metadefender.com/#!/results/file/YTE3MDQxOFNrYW1tU3E3MGxTSkM3N3I5UUNn/regular/analysis" target="_blank">
+	    	<img src="https://camo.githubusercontent.com/5a924e1336974099878cbf708f0ebed9585b5132/68747470733a2f2f7777772e64726f70626f782e636f6d2f732f333778783461766537756d7a75336b2f6d657461646566656e6465722e706e673f646c3d31">
+	    </a>
+	   </div>
+    <a href="#section1"><i class="fa fa-chevron-down bounce animated infinite"></i>
+</a>
+  </div>
+ 
+
+<!-- secound slide -->
+
+  <div class="section two" id="section1" name="section1">
+    <div class="slide">
+      <h1>How to work with nTA ?</h1>
+
+    </div>
+    <div class="slide active">
+      <h1>Add,Catrgory</h1>
+       <div class="preview_image">
+		      <img src="https://camo.githubusercontent.com/3f7b9fddf7292572fc3928a4228f07ce2d552276/68747470733a2f2f7777772e64726f70626f782e636f6d2f732f7061736631636466353373706936332f6d61696e2e706e673f646c3d31">
+		      <img src="https://camo.githubusercontent.com/366e68ec0db6dcd58347d89ac201b6df4ea62fc7/68747470733a2f2f7777772e64726f70626f782e636f6d2f732f69346833703170753677626f717a6e2f6164642e706e673f646c3d31">
+		      <img src="https://camo.githubusercontent.com/178bb3531acea9f8c392da0a9734622fac8d034c/68747470733a2f2f7777772e64726f70626f782e636f6d2f732f376678616e38786d34323376726f672f6164645f63617465676f72792e706e673f646c3d31">
+
+      </div>
+    </div>
+    <div class="slide">
+      <h1>Managment,Settings,About</h1>
+      <div class="preview_image">
+		      <img src="https://camo.githubusercontent.com/dcbfcc6dd7026c853e8447ed732f47f05064d58d/68747470733a2f2f7777772e64726f70626f782e636f6d2f732f6e6d7378763634393530647273776e2f7265736f757263655f6d616e61676d656e742e706e673f646c3d31">
+		      <img src="https://camo.githubusercontent.com/26811c1354cce29888427d81b9354a3a636d2906/68747470733a2f2f7777772e64726f70626f782e636f6d2f732f383375643268766a7635346c6b37752f73657474696e67732e706e673f646c3d31">
+		      <img src="https://camo.githubusercontent.com/98f562844e4929dfdb6b4393479cd39443292f0e/68747470733a2f2f7777772e64726f70626f782e636f6d2f732f39636a64626b6e306778637071766b2f61626f75742e706e673f646c3d31">
+
+      </div>
+    </div>
+    <div class="slide">
+      <h1>Permission,import,export opml</h1>
+
+
+
+
+<!--
+  Don't use the "5-unsafe" CDN version in your own code. It will break on you. 
+  Instead go to videojs.com and copy the CDN urls for the latest version.
+
+  video tutorial 
+-->
+
+<div id="instructions">
+
+  <video  id="my_video_1" class="video-js vjs-default-skin" width="60px" height="27px"
+      controls preload="none" poster='http://video-js.zencoder.com/oceans-clip.jpg'
+      data-setup='{ "aspectRatio":"60:27", "playbackRates": [1, 1.5, 2] }'>
+    <source src="https://www.dropbox.com/s/57rs6ttqvkz5os9/Storage-Permission.mp4?dl=1" type='video/mp4' />
+  </video>
+
+  <video  id="my_video_2" class="video-js vjs-default-skin" width="60px" height="27px"
+      controls preload="none" poster='http://video-js.zencoder.com/oceans-clip.jpg'
+      data-setup='{ "aspectRatio":"60:27", "playbackRates": [1, 1.5, 2] }'>
+    <source src="https://www.dropbox.com/s/wy974h9tp2v43kc/Export-opml.mp4?dl=1" type='video/mp4' />
+  </video>
+
+  <video  id="my_video_3" class="video-js vjs-default-skin" width="60px" height="27px"
+      controls preload="none" poster='http://video-js.zencoder.com/oceans-clip.jpg'
+      data-setup='{ "aspectRatio":"60:27", "playbackRates": [1, 1.5, 2] }'>
+    <source src="https://www.dropbox.com/s/gwxddpecnqiorzi/Import-opml.mp4?dl=1" type='video/mp4' />
+  </video>
+</div>
+ 
+
+
+
+
+
+
+
+    </div>
+  </div>
+
+
+
+
+
+  <div class="section three" id="section2">
+    <h1>List os Facilities&Permission</h1>
+    
+    <div class="allpf">
+
+	    <ul style="font-size:30px">
+	   	    <li><b>✓ Facilities</b></li>
+	    	<li>✓ Load Rss feeds quickly</li>
+	    	<li>✓ Add Rss Sources</li>
+	    	<li>✓ Manage Rss Sources</li>
+	    	<li>✓ Archive feeds</li>
+	    	<li>✓ Customizable settings</li>
+	    	<li>✓ Ad free</li>
+	    </ul>	
+	    <ul style="font-size:30px">
+	    <li><b>✓ Permission</b></li>
+	    	<li>✓ Internet</li>
+	    	<li>✓ Access Network State</li>
+	    	<li>✓ Read External Storage</li>
+	    	<li>✓ Write External Storage</li>
+	    </ul>
+	  </div>
+	</ul>
+  </div>
+  <div class="section four" id="section3">
+    <h1 style="color:#3a3e3c;">Thanks for watching nTA website</h1>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="robot">
+    <div class="antena"></div>
+    <div class="face"></div>
+    <div class="body"></div>
+    <div class="hearth"></div>
+    <div class="hearth1"></div>
+    <div class="hearth2"></div>
+    <div class="hearth3"></div>
+    <div class="hearth4"></div>
+    <div class="hearth5"></div>
+    <div class="hearth6"></div>
+    <div class="hearth7"></div>
+    <div class="hearth8"></div>
+    <div class="hearth9"></div>
+    <div class="hearth10"></div>
+    <div class="hearth11"></div>
+    <div class="hearth12"></div>
+    <div class="hearth13"></div>
+    <div class="hearth14"></div>
+    <div class="hearth15"></div>
+    <div class="hearth16"></div>
+    <div class="hearth17"></div>
+    
+    
+    <div class="hearth20"></div>
+    
+    <div class="hearth22"></div>
+    <div class="hearth23"></div>
+    <div class="hearth24"></div>
+    <div class="hearth25"></div>
+    
+    <div class="hearth27"></div>
+    <div class="hearth28"></div>
+    <div class="hearth29"></div>
+    <div class="hearth30"></div>
+    <div class="bowtie"></div>
+    <div class="arm-right"></div>
+    <div class="arm-left"></div>
+    <div class="legs"></div>
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <!--
+  <div class="section five" id="section4">
+    <h1>footer</h1>
+  </div>
+  -->
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.fullpage/2.5.9/jquery.fullPage.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.scrollup/2.4.0/jquery.scrollUp.min.js"></script>
+<script type="text/javascript" src="https://vjs.zencdn.net/5-unsafe/video.js"></script>
+<script type="text/javascript">
+			$(document).ready(function() {
+		  $('#fullpage').fullpage({});
+		});
+
+		$('a').click(function() {
+		  $('html, body').animate({
+		    scrollTop: $($.attr(this, 'href')).offset().top
+		  }, 1000);
+		  return false;
+		});
+
+
+
+		$(function(){
+  var $refreshButton = $('#refresh');
+  var $results = $('#css_result');
+  
+  function refresh(){
+    var css = $('style.cp-pen-styles').text();
+    $results.html(css);
+  }
+
+  refresh();
+  $refreshButton.click(refresh);
+  
+  // Select all the contents when clicked
+  $results.click(function(){
+    $(this).select();
+  });
+});
+
+</script>
+
+
+<!-- Fork Github -->
+<a href="https://github.com/rezaduty/nTA"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
+</body>
+</html>
